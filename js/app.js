@@ -8,6 +8,7 @@ const todoList = document.querySelector(".todo-list");
 // Event Listeners
 
 todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteCheck); // to delete a todo thing after we add it
 
 //Functions
 
@@ -19,7 +20,7 @@ function addTodo(event) {
   todoDiv.classList.add("todo");
   // Create LI Element
   const newTodo = document.createElement("li");
-  newTodo.innerText = "おはようございます";
+  newTodo.innerText = todoInput.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo); //we are actually sticking it inside this Div we just created.
   // Create check Mark Button Element
@@ -34,4 +35,23 @@ function addTodo(event) {
   todoDiv.appendChild(trashButton); //again we are actually sticking it inside this Div we just created.
   // (APPEND TO LIST) taking this Big Div(todoDiv) which has (1li&2btns) and attach/append it to the actual <ul class="todo-list">  in html, because what we have right now is a Div just floating around and we have to append it to the ul todo-list
   todoList.appendChild(todoDiv);
+  // To Clear Todo Input field Value after we add a todo so it won't stay there in the input field.
+  todoInput.value = "";
+}
+
+// The function that will delete a todo thing after we add it
+function deleteCheck(event) {
+  /* console.log(event.target); */
+  const item = event.target;
+  // Delete a todo
+  if (item.classList[0] === "trash-btn") {
+    const todo = item.parentElement;
+    todo.remove();
+  }
+
+  // Check Mark => basically, we click on the green to mark this as completed
+  if (item.classList[0] === "complete-btn") {
+    const todo = item.parentElement;
+    todo.classList.toggle("completed");
+  }
 }

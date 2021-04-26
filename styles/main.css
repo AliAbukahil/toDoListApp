@@ -82,4 +82,14 @@ form button:hover {
   background: #49cc49;
 }
 
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+  /* we basically can't click on these anymore */
+}
+
 /*# sourceMappingURL=main.css.map */
