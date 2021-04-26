@@ -1,4 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
-  background-color: aqua;
+  background-image: linear-gradient(120deg, #577590, #277da1);
+  color: #ffbe0b;
   font-family: "Hachi Maru Pop", cursive, sans-serif;
+  min-height: 100%;
+}
+
+header {
+  font-size: 1.5rem;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
 }
