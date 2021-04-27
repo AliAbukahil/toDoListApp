@@ -46,9 +46,13 @@ function deleteCheck(event) {
   // Delete a todo
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
-    todo.remove();
+    // Animation
+    todo.classList.add("fall"); // before we remove the ELement, I wanna do todo fall Animation
+    todo.addEventListener("transitionend", function () {
+      // and what this function is going to do,it's going to wait and only execute after the animation above is completed, so after the transition is completed then removes the finished todo.
+      todo.remove();
+    });
   }
-
   // Check Mark => basically, we click on the green to mark this as completed
   if (item.classList[0] === "complete-btn") {
     const todo = item.parentElement;
